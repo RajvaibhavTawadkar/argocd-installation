@@ -2,7 +2,25 @@
 
 
 kubectl create namespace argocd
+
 kubectl apply -n argocd --server-side --force-conflicts -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
+
+to get password : $ kubectl get secret argocd-initial-admin-secret -n argocd -o yaml
+
+sonaliraj1317@cloudshell:~ (project-5b757f62-dc19-4cae-98e)$ kubectl get secret argocd-initial-admin-secret -n argocd -o yaml 
+apiVersion: v1
+data:
+  password: VURHbFAxUjFCOWFGLVpsSA==
+kind: Secret
+metadata:
+  creationTimestamp: "2026-09-27T09:07:02Z"
+  name: argocd-initial-admin-secret
+  namespace: argocd
+  resourceVersion: "1790500022272255002"
+  uid: e7c1f80f-a5f6-434a-830b-219a75d013a7
+type: Opaque
+
+run this : sonaliraj1317@cloudshell:~ (project-5b757f62-dc19-4cae-98e)$ echo VURHbFAxUjFCOWFGLVpsSA== | base64 --decode 
 
 ## Overview
 
